@@ -14,28 +14,28 @@ const About = () => {
     {
       title: "The Beginning",
       description: "Started my coding journey with HTML, CSS, and JavaScript. Built my first website and fell in love with web development.",
-      year: "2019",
+      year: "2024",
       level: "BEGINNER",
       color: "var(--primary)"
     },
     {
       title: "Full Stack Discovery",
       description: "Dived into React, Node.js, and databases. Built full-stack applications and learned about APIs, authentication, and deployment.",
-      year: "2021",
+      year: "2025",
       level: "INTERMEDIATE",
       color: "var(--secondary)"
     },
     {
       title: "Professional Growth",
       description: "Started working on real-world projects, collaborated with teams, and learned agile methodologies and best practices.",
-      year: "2022",
+      year: "2025-Present",
       level: "ADVANCED",
       color: "var(--accent)"
     },
     {
       title: "Current Focus",
-      description: "Mastering modern frameworks, performance optimization, and scalable architecture. Exploring AI/ML integrations.",
-      year: "2023-Present",
+      description: "Mastering modern frameworks, performance optimization, and scalable architecture. Exploring Devops & Cloud.",
+      year: "2025-Present",
       level: "EXPERT",
       color: "#00d4ff"
     }
@@ -45,56 +45,55 @@ const About = () => {
     {
       title: "Bachelor of Technology (BTech)",
       subtitle: "Computer Science & Engineering",
-      institution: "University of Technology",
-      period: "2020 - 2024",
-      details: "Specialized in software development, algorithms, and web technologies. Graduated with honors.",
-      highlights: ["GPA: 8.5/10", "Major in Web Technologies", "Dean's List 2022"],
-      level: "DEGREE"
+      institution: "Uttarakhand Technical University",
+      session: "2021 - 2025",
+      details: "Specialized in software development, algorithms, and web technologies.",
+      level: "  BACHELOR DEGREE"
     },
     {
-      title: "Full Stack Web Development",
+      title: "Full Stack Web Development(MERN)",
       subtitle: "Advanced Certification",
-      institution: "Tech Bootcamp",
-      period: "2023",
-      details: "Comprehensive training in modern web development including React, Node.js, databases, and DevOps.",
+      institution: "Apna College",
+      period: "2024",
+      details: "Comprehensive training in modern web development including React, Node.js, databases",
       highlights: ["React Mastery", "Backend Development", "Project Management"],
       level: "CERTIFICATION"
     },
-    {
-      title: "UI/UX Design Principles",
-      subtitle: "Design Specialization",
-      institution: "Design Academy",
-      period: "2022",
-      details: "Learned user-centered design, prototyping, and accessibility standards for modern web applications.",
-      highlights: ["Figma", "User Research", "Prototyping"],
-      level: "SPECIALIZATION"
-    }
+    // {
+    //   title: "",
+    //   subtitle: "Design Specialization",
+    //   institution: "Design Academy",
+    //   period: "2022",
+    //   details: "Learned user-centered design, prototyping, and accessibility standards for modern web applications.",
+    //   highlights: ["Figma", "User Research", "Prototyping"],
+    //   level: "SPECIALIZATION"
+    // }
   ]
 
   const experienceCards = [
     {
       title: "Software Developer",
-      company: "Tech Solutions Inc.",
-      period: "2023 - Present",
-      details: "Develop and maintain web applications using React, Node.js, and modern JavaScript frameworks. Collaborate with cross-functional teams.",
-      technologies: ["React", "Node.js", "MongoDB", "AWS"],
+      company: "Slog Solutions Pvt. Ltd.",
+      period: "May 2025 - Present",
+      details: "Develop and maintain web applications using React, Node.js, and modern JavaScript frameworks and Django. Collaborate with cross-functional teams.",
+      technologies: ["MERN Stack", "Django", "Vercel"],
       level: "FULL-TIME"
     },
     {
       title: "Frontend Developer Intern",
-      company: "Digital Innovations Ltd.",
-      period: "2022 - 2023",
+      company: "CodSoft.",
+      period: "2023",
       details: "Built responsive web applications and participated in code reviews. Gained experience with modern development workflows.",
-      technologies: ["JavaScript", "CSS", "Git", "Agile"],
+      technologies: ["JavaScript", "CSS", "Git"],
       level: "INTERNSHIP"
     },
     {
-      title: "Freelance Web Developer",
-      company: "Self-Employed",
-      period: "2021 - 2022",
+      title: "Frontend Web Developer",
+      company: "InternPe",
+      period: "2024",
       details: "Developed websites and web applications for various clients. Managed projects from concept to deployment.",
       technologies: ["HTML/CSS", "JavaScript", "WordPress", "SEO"],
-      level: "FREELANCE"
+      level: "INTERNSHIP"
     }
   ]
 
@@ -102,27 +101,27 @@ const About = () => {
     {
       title: "Professional Summary",
       icon: "📋",
-      content: "Passionate software developer with 1+ years of experience building modern web applications. Specialized in React, Node.js, and full-stack development. Strong problem-solving skills and commitment to writing clean, efficient code.",
+      content: "Passionate software developer with 1+ years of experience building modern Softwares. Specialized in MERN Stack & Django.",
       color: "#4ecdc4"
     },
     {
       title: "Technical Skills",
       icon: "💻",
-      content: "Frontend: React, Next.js, JavaScript/TypeScript, HTML5, CSS3, Tailwind CSS\nBackend: Node.js, Express.js, Python, REST APIs\nDatabases: MongoDB, PostgreSQL, Redis\nTools: Git, Docker, AWS, CI/CD, Figma",
+      content: "Frontend: React, Next.js, JavaScript/TypeScript, HTML5, CSS3, Bootstrap\nBackend: Node.js, Express.js, Python, REST APIs\nDatabases: MongoDB, MySQL\nTools: Git, Docker, AWS, CI/CD, Figma",
       color: "#ff6b6b"
     },
-    {
-      title: "Achievements",
-      icon: "🏆",
-      content: "• Successfully delivered 5+ projects with 100% client satisfaction\n• Reduced application load time by 40% through optimization\n• Implemented CI/CD pipeline reducing deployment time by 60%\n• Mentored 2 junior developers in best practices",
-      color: "#ffd166"
-    },
-    {
-      title: "Certifications",
-      icon: "📜",
-      content: "• Full Stack Web Development Certification (2023)\n• AWS Certified Cloud Practitioner\n• React Developer Certification\n• Git & GitHub Mastery Certificate",
-      color: "#06d6a0"
-    }
+    // {
+    //   title: "Achievements",
+    //   icon: "🏆",
+    //   content: "• Successfully delivered 5+ projects with 100% client satisfaction\n• Reduced application load time by 40% through optimization\n• Implemented CI/CD pipeline reducing deployment time by 60%\n• Mentored 2 junior developers in best practices",
+    //   color: "#ffd166"
+    // },
+    // {
+    //   title: "Certifications",
+    //   icon: "📜",
+    //   content: "• Full Stack Web Development Certification (2023)\n• AWS Certified Cloud Practitioner\n• React Developer Certification\n• Git & GitHub Mastery Certificate",
+    //   color: "#06d6a0"
+    // }
   ]
 
   const renderContent = () => {
@@ -212,27 +211,43 @@ const About = () => {
           </div>
         )
 
-      case 'resume':
-        return (
-          <div className="about-resume-container">
-            {/* Resume Header */}
-            <div className="about-resume-header glass card-3d">
-              <div className="about-resume-header-content">
-                <h2 className="about-resume-title">Adarsh Kumar</h2>
-                <p className="about-resume-subtitle">Software Developer</p>
-                <div className="about-resume-contact">
-                  <span className="about-contact-item">📧 kradarsh52@gmail.com</span>
-                  <span className="about-contact-item">📱 +91 9608868687</span>
-                  <span className="about-contact-item">📍 Dehradun, India</span>
-                  <span className="about-contact-item">🔗 https://www.linkedin.com/in/adarsh-kumar-507a88246/</span>
-                </div>
-              </div>
-              <a href="/assets/adarsh_resume.pdf" download>
-              <button className="about-download-btn">
-                📥 Download Resume
-              </button>
-              </a>
-            </div>
+case 'resume':
+  return (
+    <div className="about-resume-container">
+      {/* Resume Header */}
+      <div className="about-resume-header glass card-3d">
+        <div className="about-resume-header-content">
+          <h2 className="about-resume-title">Adarsh Kumar</h2>
+          <p className="about-resume-subtitle">Software Developer</p>
+          <div className="about-resume-contact">
+            {/* Email from environment variable */}
+            <span className="about-contact-item">
+              ✉️ {import.meta.env.VITE_CONTACT_EMAIL}
+            </span>
+            
+            {/* Phone from environment variable */}
+            <span className="about-contact-item">
+              📱 {import.meta.env.VITE_CONTACT_PHONE}
+            </span>
+            
+            {/* Location (optional - can also be moved to env if needed) */}
+            <span className="about-contact-item">
+              📍 Dehradun, India
+            </span>
+            
+            {/* LinkedIn - consider adding to env if it changes */}
+            <span className="about-contact-item">
+              🔗 import.meta.env.VITE_LINKEDIN_URL
+            </span>
+          </div>
+        </div>
+        <a href="/assets/adarsh_resume.pdf" download>
+          <button className="about-download-btn">
+            📥 Download Resume
+          </button>
+        </a>
+      </div>
+    
             
 
             {/* Resume Sections */}

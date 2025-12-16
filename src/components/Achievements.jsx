@@ -107,7 +107,7 @@ const Achievements = () => {
           <div className="stat-card glass">
             <div className="stat-icon">🏆</div>
             <div className="stat-content">
-              <h3>15+</h3>
+              <h3>5+</h3>
               <p>Awards Won</p>
             </div>
           </div>
@@ -121,7 +121,7 @@ const Achievements = () => {
           <div className="stat-card glass">
             <div className="stat-icon">🚀</div>
             <div className="stat-content">
-              <h3>50+</h3>
+              <h3>5+</h3>
               <p>Projects Completed</p>
             </div>
           </div>

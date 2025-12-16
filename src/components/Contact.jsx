@@ -17,15 +17,15 @@ const Contact = () => {
 
     try {
       await emailjs.send(
-        'YOUR_SERVICE_ID',
-        'YOUR_TEMPLATE_ID', 
+        import.meta.env.VITE_EMAILJS_SERVICE_ID_contact,  // From .env
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID_contact, 
         {
           from_name: formData.name,
           from_email: formData.email,
           subject: formData.subject,
           message: formData.message
         },
-        'YOUR_PUBLIC_KEY'
+        import.meta.env.VITE_EMAILJS_API_KEY_contact 
       )
       
       setShowSuccess(true)
@@ -97,8 +97,8 @@ const Contact = () => {
               </div>
               <div className="contact-details">
                 <h3>Email</h3>
-                <p>your.email@domain.com</p>
-                <a href="mailto:your.email@domain.com" className="contact-link">
+                  <p>{import.meta.env.VITE_CONTACT_EMAIL}</p>
+                  <a href={`mailto:${import.meta.env.VITE_CONTACT_EMAIL}`} className="contact-link">
                   Send Email
                 </a>
               </div>
@@ -112,8 +112,8 @@ const Contact = () => {
               </div>
               <div className="contact-details">
                 <h3>Phone</h3>
-                <p>+91 9876543210</p>
-                <a href="tel:+919876543210" className="contact-link">
+                <p>{import.meta.env.VITE_CONTACT_PHONE}</p>
+                <a href={`tel:${import.meta.env.VITE_CONTACT_PHONE}`} className="contact-link">
                   Call Now
                 </a>
               </div>
@@ -129,7 +129,7 @@ const Contact = () => {
               <div className="contact-details">
                 <h3>WhatsApp</h3>
                 <p>Available 9AM - 6PM IST</p>
-                <a href="https://wa.me/919876543210" className="contact-link">
+                <a href={`https://wa.me/${import.meta.env.VITE_CONTACT_PHONE}`} className="contact-link">
                   Message on WhatsApp
                 </a>
               </div>

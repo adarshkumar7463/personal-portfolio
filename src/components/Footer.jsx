@@ -5,8 +5,8 @@ const Footer = () => {
   const currentYear = new Date().getFullYear()
 
   const socialLinks = [
-    { name: 'GitHub', url: 'https://github.com', icon: '💻' },
-    { name: 'LinkedIn', url: 'https://linkedin.com', icon: '💼' },
+    { name: 'GitHub', url: import.meta.env.VITE_GITHUB_URL, icon: '💻' },
+    { name: 'LinkedIn', url:import.meta.env.VITE_LINKEDIN_URL, icon: '💼' },
     { name: 'Twitter', url: 'https://twitter.com', icon: '🐦' },
     { name: 'Instagram', url: 'https://instagram.com', icon: '📷' }
   ]
@@ -61,49 +61,33 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="footer-section">
-            <h3>Quick Links</h3>
-            <div className="footer-links">
-              {quickLinks.map(link => (
-                <Link key={link.path} to={link.path} className="footer-link">
-                  {link.label}
-                </Link>
-              ))}
-            </div>
-          </div>
-
-          <div className="footer-section">
-            <h3>Services</h3>
-            <div className="footer-links">
-              {services.map(service => (
-                <a key={service} href="#services" className="footer-link">
-                  {service}
+        <div className="footer-section">
+          <h3>Get In Touch</h3>
+          <div className="contact-info">
+            <div className="contact-item">
+              <span className="contact-icon">📧</span>
+              <div>
+                <p>Email</p>
+                <a 
+                  href={`mailto:${import.meta.env.VITE_CONTACT_EMAIL}`} 
+                  className="contact-link"
+                >
+                  {import.meta.env.VITE_CONTACT_EMAIL }
                 </a>
-              ))}
+              </div>
             </div>
-          </div>
-
-          <div className="footer-section">
-            <h3>Get In Touch</h3>
-            <div className="contact-info">
-              <div className="contact-item">
-                <span className="contact-icon">📧</span>
-                <div>
-                  <p>Email</p>
-                  <a href="mailto:kradarsh52@gmail.com" className="contact-link">
-                    kradarsh52@gmail.com
-                  </a>
-                </div>
+            <div className="contact-item">
+              <span className="contact-icon">📱</span>
+              <div>
+                <p>Phone</p>
+                <a 
+                  href={`tel:${import.meta.env.VITE_CONTACT_PHONE }`} 
+                  className="contact-link"
+                >
+                  {import.meta.env.VITE_CONTACT_PHONE }
+                </a>
               </div>
-              <div className="contact-item">
-                <span className="contact-icon">📱</span>
-                <div>
-                  <p>Phone</p>
-                  <a href="tel:+919608868687" className="contact-link">
-                    +91 9608868687
-                  </a>
-                </div>
-              </div>
+            </div>
               <div className="contact-item">
                 <span className="contact-icon">📍</span>
                 <div>

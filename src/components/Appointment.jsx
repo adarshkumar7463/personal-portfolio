@@ -32,7 +32,8 @@ const Appointment = () => {
   }, []);
 
   const availableTimes = [
-    "09:00 AM","10:00 AM",
+    "09:00 AM",
+    "10:00 AM",
     "11:00 AM",
     "02:00 PM",
     "03:00 PM",
@@ -69,8 +70,8 @@ const Appointment = () => {
 
     try {
       await emailjs.send(
-        "YOUR_SERVICE_ID",
-        "YOUR_TEMPLATE_ID",
+        import.meta.env.VITE_EMAILJS_SERVICE_ID_appoinment,  // From .env
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID_appoinment, // From .env
         {
           from_name: formData.name,
           from_email: formData.email,
@@ -78,9 +79,9 @@ const Appointment = () => {
           date: formData.date,
           time: formData.time,
           message: formData.message,
-          to_email: "your.email@domain.com",
+          to_email: import.meta.env.VITE_ADMIN_EMAIL || import.meta.env.VITE_CONTACT_EMAIL,
         },
-        "YOUR_PUBLIC_KEY"
+        import.meta.env.VITE_EMAILJS_API_KEY_appoinment 
       );
 
       setShowSuccess(true);
