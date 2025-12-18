@@ -169,7 +169,7 @@ const TechStack = () => {
                   className="progress-bar" 
                   style={{ 
                     width: tech.level === 'Expert' ? '90%' : 
-                           tech.level === 'Advanced' ? '75%' : '60%' 
+                          tech.level === 'Advanced' ? '75%' : '60%' 
                   }}
                 ></div>
               </div>

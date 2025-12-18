@@ -7,7 +7,13 @@ node_modules/
 # Environment
 .env
 .env.local
+
 .env.production.local
+.env.test
+
+# Vercel
+.vercel
+
 
 # Build outputs
 dist/

@@ -58,7 +58,7 @@ const About = () => {
       details: "Comprehensive training in modern web development including React, Node.js, databases",
       highlights: ["React Mastery", "Backend Development", "Project Management"],
       level: "CERTIFICATION"
-    },
+    }
     // {
     //   title: "",
     //   subtitle: "Design Specialization",
@@ -237,11 +237,11 @@ case 'resume':
             
             {/* LinkedIn - consider adding to env if it changes */}
             <span className="about-contact-item">
-              🔗 import.meta.env.VITE_LINKEDIN_URL
+              🔗 {import.meta.env.VITE_LINKEDIN_URL}
             </span>
           </div>
         </div>
-        <a href="/assets/adarsh_resume.pdf" download>
+        <a href="/adarsh_resume.pdf" download>
           <button className="about-download-btn">
             📥 Download Resume
           </button>
