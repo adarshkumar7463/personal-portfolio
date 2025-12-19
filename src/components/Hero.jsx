@@ -104,7 +104,7 @@ const Hero = () => {
   }
 
   const handleDownloadResume = () => {
-    const resumeUrl = '/resume.pdf'
+    const resumeUrl = '/public/adarsh_resume.pdf'
     const link = document.createElement('a')
     link.href = resumeUrl
     link.download = 'Adarsh_Resume.pdf'
@@ -131,10 +131,15 @@ const Hero = () => {
           </div>
           <div className="resume-text">
             <span className="resume-label">Download</span>
+            {/* <a href="/adarsh_resume.pdf" download></a> */}
             <span className="resume-title">My Resume</span>
+            
           </div>
           <div className="resume-glow"></div>
         </button>
+
+
+                
 
         <div className="hero-content">
           <div className="hero-text">

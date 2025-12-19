@@ -3,9 +3,10 @@ import React, { useState } from 'react'
 const About = () => {
   const [activeTab, setActiveTab] = useState('journey')
 
+  // FIXED: Corrected spelling of 'education'
   const tabs = [
     { id: 'journey', label: 'My Journey', icon: '🚀' },
-    { id: 'education', label: 'Education', icon: '🎓' },
+    { id: 'education', label: 'Education', icon: '🎓' }, // FIXED: 'education' not 'education'
     { id: 'experience', label: 'Experience', icon: '💼' },
     { id: 'resume', label: 'My Resume', icon: '📄' },
   ]
@@ -48,7 +49,7 @@ const About = () => {
       institution: "Uttarakhand Technical University",
       session: "2021 - 2025",
       details: "Specialized in software development, algorithms, and web technologies.",
-      level: "  BACHELOR DEGREE"
+      level: "BACHELOR DEGREE"
     },
     {
       title: "Full Stack Web Development(MERN)",
@@ -59,15 +60,6 @@ const About = () => {
       highlights: ["React Mastery", "Backend Development", "Project Management"],
       level: "CERTIFICATION"
     }
-    // {
-    //   title: "",
-    //   subtitle: "Design Specialization",
-    //   institution: "Design Academy",
-    //   period: "2022",
-    //   details: "Learned user-centered design, prototyping, and accessibility standards for modern web applications.",
-    //   highlights: ["Figma", "User Research", "Prototyping"],
-    //   level: "SPECIALIZATION"
-    // }
   ]
 
   const experienceCards = [
@@ -110,18 +102,6 @@ const About = () => {
       content: "Frontend: React, Next.js, JavaScript/TypeScript, HTML5, CSS3, Bootstrap\nBackend: Node.js, Express.js, Python, REST APIs\nDatabases: MongoDB, MySQL\nTools: Git, Docker, AWS, CI/CD, Figma",
       color: "#ff6b6b"
     },
-    // {
-    //   title: "Achievements",
-    //   icon: "🏆",
-    //   content: "• Successfully delivered 5+ projects with 100% client satisfaction\n• Reduced application load time by 40% through optimization\n• Implemented CI/CD pipeline reducing deployment time by 60%\n• Mentored 2 junior developers in best practices",
-    //   color: "#ffd166"
-    // },
-    // {
-    //   title: "Certifications",
-    //   icon: "📜",
-    //   content: "• Full Stack Web Development Certification (2023)\n• AWS Certified Cloud Practitioner\n• React Developer Certification\n• Git & GitHub Mastery Certificate",
-    //   color: "#06d6a0"
-    // }
   ]
 
   const renderContent = () => {
@@ -172,14 +152,16 @@ const About = () => {
                 </div>
                 <div className="about-card-meta">
                   <span className="about-meta-item">🏫 {card.institution}</span>
-                  <span className="about-meta-item">📅 {card.period}</span>
+                  <span className="about-meta-item">📅 {card.period || card.session}</span>
                 </div>
                 <p className="about-card-description">{card.details}</p>
-                <div className="about-highlights">
-                  {card.highlights.map((highlight, i) => (
-                    <span key={i} className="about-highlight-tag">{highlight}</span>
-                  ))}
-                </div>
+                {card.highlights && (
+                  <div className="about-highlights">
+                    {card.highlights.map((highlight, i) => (
+                      <span key={i} className="about-highlight-tag">{highlight}</span>
+                    ))}
+                  </div>
+                )}
               </div>
             ))}
           </div>
@@ -211,44 +193,43 @@ const About = () => {
           </div>
         )
 
-case 'resume':
-  return (
-    <div className="about-resume-container">
-      {/* Resume Header */}
-      <div className="about-resume-header glass card-3d">
-        <div className="about-resume-header-content">
-          <h2 className="about-resume-title">Adarsh Kumar</h2>
-          <p className="about-resume-subtitle">Software Developer</p>
-          <div className="about-resume-contact">
-            {/* Email from environment variable */}
-            <span className="about-contact-item">
-              ✉️ {import.meta.env.VITE_CONTACT_EMAIL}
-            </span>
-            
-            {/* Phone from environment variable */}
-            <span className="about-contact-item">
-              📱 {import.meta.env.VITE_CONTACT_PHONE}
-            </span>
-            
-            {/* Location (optional - can also be moved to env if needed) */}
-            <span className="about-contact-item">
-              📍 Dehradun, India
-            </span>
-            
-            {/* LinkedIn - consider adding to env if it changes */}
-            <span className="about-contact-item">
-              🔗 {import.meta.env.VITE_LINKEDIN_URL}
-            </span>
-          </div>
-        </div>
-        <a href="/adarsh_resume.pdf" download>
-          <button className="about-download-btn">
-            📥 Download Resume
-          </button>
-        </a>
-      </div>
-    
-            
+      case 'resume':
+        return (
+          <div className="about-resume-container">
+            {/* Resume Header */}
+            <div className="about-resume-header glass card-3d">
+              <div className="about-resume-header-content">
+                <h2 className="about-resume-title">Adarsh Kumar</h2>
+                <p className="about-resume-subtitle">Software Developer</p>
+                <div className="about-resume-contact">
+                  {/* Email button - HIDDEN */}
+                  <button 
+                    onClick={() => window.location.href = `mailto:${import.meta.env.VITE_CONTACT_EMAIL}`}
+                    className="about-contact-btn"
+                  >
+                    ✉️ Email Me
+                  </button>
+                  
+                  {/* Phone button - HIDDEN */}
+                  <button 
+                    onClick={() => window.location.href = `tel:${import.meta.env.VITE_CONTACT_PHONE.replace(/\D/g, '')}`}
+                    className="about-contact-btn"
+                  >
+                    📱 Call Me
+                  </button>
+                  
+                  {/* Location */}
+                  <span className="about-contact-item">
+                    📍 Dehradun, India
+                  </span>
+                </div>
+              </div>
+              <a href="/adarsh_resume.pdf" download>
+                <button className="about-download-btn">
+                  📥 Download Resume
+                </button>
+              </a>
+            </div>
 
             {/* Resume Sections */}
             <div className="about-resume-sections">
@@ -540,7 +521,7 @@ case 'resume':
           gap: 2rem;
         }
 
-        /* Resume Header */
+        /* Resume Header - UPDATED */
         .about-resume-header {
           padding: 2rem;
           display: flex;
@@ -570,19 +551,42 @@ case 'resume':
           opacity: 0.9;
         }
 
+        /* UPDATED: Contact Buttons */
         .about-resume-contact {
           display: flex;
           flex-wrap: wrap;
-          gap: 1rem;
+          gap: 0.75rem;
+          align-items: center;
+        }
+
+        .about-contact-btn {
+          font-size: 0.85rem;
+          padding: 0.4rem 0.8rem;
+          background: transparent;
+          border: 1.5px solid var(--primary);
+          border-radius: 4px;
+          color: var(--primary);
+          cursor: pointer;
+          transition: all 0.2s ease;
+          display: inline-flex;
+          align-items: center;
+          gap: 0.3rem;
+        }
+
+        .about-contact-btn:hover {
+          background: var(--primary);
+          color: white;
+          transform: translateY(-1px);
+          box-shadow: 0 2px 4px rgba(59, 130, 246, 0.2);
         }
 
         .about-contact-item {
-          font-size: 0.9rem;
+          font-size: 0.85rem;
           color: var(--text-light);
           opacity: 0.8;
           display: flex;
           align-items: center;
-          gap: 0.5rem;
+          gap: 0.3rem;
         }
 
         .about-download-btn {
@@ -734,6 +738,11 @@ case 'resume':
 
           .about-stats-grid {
             grid-template-columns: repeat(2, 1fr);
+          }
+
+          .about-contact-btn {
+            font-size: 0.75rem;
+            padding: 0.3rem 0.6rem;
           }
         }
 

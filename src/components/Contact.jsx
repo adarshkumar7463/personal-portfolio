@@ -17,7 +17,7 @@ const Contact = () => {
 
     try {
       await emailjs.send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID_contact,  // From .env
+        import.meta.env.VITE_EMAILJS_SERVICE_ID_contact,
         import.meta.env.VITE_EMAILJS_TEMPLATE_ID_contact, 
         {
           from_name: formData.name,
@@ -57,6 +57,21 @@ const Contact = () => {
     }
   }, [showSuccess])
 
+  // Handler functions for hidden contact
+  const handleEmailClick = () => {
+    window.location.href = `mailto:${import.meta.env.VITE_CONTACT_EMAIL}?subject=Portfolio Inquiry`;
+  };
+
+  const handlePhoneClick = () => {
+    const cleanPhone = import.meta.env.VITE_CONTACT_PHONE.replace(/\D/g, '');
+    window.location.href = `tel:${cleanPhone}`;
+  };
+
+  const handleWhatsAppClick = () => {
+    const cleanPhone = import.meta.env.VITE_CONTACT_PHONE.replace(/\D/g, '');
+    window.open(`https://wa.me/${cleanPhone}`, '_blank', 'noopener,noreferrer');
+  };
+
   return (
     <section id="contact" className="contact-section">
       {/* Success Message Popup at Top */}
@@ -88,6 +103,7 @@ const Contact = () => {
         <div className="contact-content">
           {/* Contact Cards - Left Side */}
           <div className="contact-info">
+            {/* Email Card - HIDDEN INFO */}
             <div className="contact-card glass card-3d">
               <div className="contact-icon email-icon">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -97,13 +113,14 @@ const Contact = () => {
               </div>
               <div className="contact-details">
                 <h3>Email</h3>
-                  <p>{import.meta.env.VITE_CONTACT_EMAIL}</p>
-                  <a href={`mailto:${import.meta.env.VITE_CONTACT_EMAIL}`} className="contact-link">
+                <p>Click to send me an email</p>
+                <button onClick={handleEmailClick} className="contact-link-btn">
                   Send Email
-                </a>
+                </button>
               </div>
             </div>
 
+            {/* Phone Card - HIDDEN INFO */}
             <div className="contact-card glass card-3d">
               <div className="contact-icon phone-icon">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -112,13 +129,14 @@ const Contact = () => {
               </div>
               <div className="contact-details">
                 <h3>Phone</h3>
-                <p>{import.meta.env.VITE_CONTACT_PHONE}</p>
-                <a href={`tel:${import.meta.env.VITE_CONTACT_PHONE}`} className="contact-link">
+                <p>Click to call me directly</p>
+                <button onClick={handlePhoneClick} className="contact-link-btn">
                   Call Now
-                </a>
+                </button>
               </div>
             </div>
 
+            {/* WhatsApp Card - HIDDEN INFO */}
             <div className="contact-card glass card-3d">
               <div className="contact-icon whatsapp-icon">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -129,9 +147,9 @@ const Contact = () => {
               <div className="contact-details">
                 <h3>WhatsApp</h3>
                 <p>Available 9AM - 6PM IST</p>
-                <a href={`https://wa.me/${import.meta.env.VITE_CONTACT_PHONE}`} className="contact-link">
+                <button onClick={handleWhatsAppClick} className="contact-link-btn whatsapp-btn">
                   Message on WhatsApp
-                </a>
+                </button>
               </div>
             </div>
 
@@ -145,7 +163,7 @@ const Contact = () => {
               <div className="contact-details">
                 <h3>Location</h3>
                 <p>Based in India</p>
-                <p className="availability">Available Worldwide</p>
+                <p className="availability">Dehradun,India</p>
               </div>
             </div>
           </div>
@@ -167,7 +185,7 @@ const Contact = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  placeholder="John Doe"
+                  placeholder="your full name"
                 />
               </div>
 
@@ -180,7 +198,7 @@ const Contact = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  placeholder="john@example.com"
+                  placeholder="name@example.com"
                 />
               </div>
             </div>
@@ -427,19 +445,38 @@ const Contact = () => {
           line-height: 1.3;
         }
 
-        .contact-link {
+        /* Updated: Contact Link Buttons */
+        .contact-link-btn {
           display: inline-block;
           margin-top: 0.3rem;
+          background: transparent;
+          border: 1.5px solid #3b82f6;
           color: #3b82f6;
           text-decoration: none;
           font-weight: 500;
           font-size: 0.8rem;
-          transition: color 0.2s;
+          padding: 0.3rem 0.8rem;
+          border-radius: 4px;
+          cursor: pointer;
+          transition: all 0.2s ease;
         }
 
-        .contact-link:hover {
-          color: #2563eb;
-          text-decoration: underline;
+        .contact-link-btn:hover {
+          background: #3b82f6;
+          color: white;
+          transform: translateY(-1px);
+          box-shadow: 0 2px 4px rgba(59, 130, 246, 0.2);
+        }
+
+        .contact-link-btn.whatsapp-btn {
+          border-color: #25D366;
+          color: #25D366;
+        }
+
+        .contact-link-btn.whatsapp-btn:hover {
+          background: #25D366;
+          color: white;
+          box-shadow: 0 2px 4px rgba(37, 211, 102, 0.2);
         }
 
         .availability {
@@ -629,6 +666,11 @@ const Contact = () => {
           
           .form-header h3 {
             font-size: 1.1rem;
+          }
+          
+          .contact-link-btn {
+            font-size: 0.75rem;
+            padding: 0.25rem 0.6rem;
           }
         }
       `}</style>

@@ -6,7 +6,7 @@ const Footer = () => {
 
   const socialLinks = [
     { name: 'GitHub', url: import.meta.env.VITE_GITHUB_URL, icon: '💻' },
-    { name: 'LinkedIn', url:import.meta.env.VITE_LINKEDIN_URL, icon: '💼' },
+    { name: 'LinkedIn', url: import.meta.env.VITE_LINKEDIN_URL, icon: '💼' },
     { name: 'Twitter', url: 'https://twitter.com', icon: '🐦' },
     { name: 'Instagram', url: 'https://instagram.com', icon: '📷' }
   ]
@@ -28,6 +28,21 @@ const Footer = () => {
     'Project Review',
     'Career Guidance'
   ]
+
+  // Handler functions for hidden contact
+  const handleEmailClick = () => {
+    window.location.href = `mailto:${import.meta.env.VITE_CONTACT_EMAIL}?subject=Portfolio Inquiry`;
+  };
+
+  const handlePhoneClick = () => {
+    const cleanPhone = import.meta.env.VITE_CONTACT_PHONE.replace(/\D/g, '');
+    window.location.href = `tel:${cleanPhone}`;
+  };
+
+  const handleWhatsAppClick = () => {
+    const cleanPhone = import.meta.env.VITE_CONTACT_PHONE.replace(/\D/g, '');
+    window.open(`https://wa.me/${cleanPhone}`, '_blank', 'noopener,noreferrer');
+  };
 
   return (
     <footer className="footer">
@@ -64,39 +79,48 @@ const Footer = () => {
         <div className="footer-section">
           <h3>Get In Touch</h3>
           <div className="contact-info">
+            {/* Email - HIDDEN */}
             <div className="contact-item">
               <span className="contact-icon">📧</span>
               <div>
                 <p>Email</p>
-                <a 
-                  href={`mailto:${import.meta.env.VITE_CONTACT_EMAIL}`} 
-                  className="contact-link"
-                >
-                  {import.meta.env.VITE_CONTACT_EMAIL }
-                </a>
+                <button onClick={handleEmailClick} className="contact-link-btn">
+                  Email Me
+                </button>
               </div>
             </div>
+            
+            {/* Phone - HIDDEN */}
             <div className="contact-item">
               <span className="contact-icon">📱</span>
               <div>
                 <p>Phone</p>
-                <a 
-                  href={`tel:${import.meta.env.VITE_CONTACT_PHONE }`} 
-                  className="contact-link"
-                >
-                  {import.meta.env.VITE_CONTACT_PHONE }
-                </a>
+                <button onClick={handlePhoneClick} className="contact-link-btn">
+                  Call Me
+                </button>
               </div>
             </div>
-              <div className="contact-item">
-                <span className="contact-icon">📍</span>
-                <div>
-                  <p>Location</p>
-                  <span>Based in India</span>
-                </div>
+            
+            {/* WhatsApp - HIDDEN */}
+            <div className="contact-item">
+              <span className="contact-icon">💬</span>
+              <div>
+                <p>WhatsApp</p>
+                <button onClick={handleWhatsAppClick} className="contact-link-btn whatsapp">
+                  WhatsApp Me
+                </button>
+              </div>
+            </div>
+            
+            <div className="contact-item">
+              <span className="contact-icon">📍</span>
+              <div>
+                <p>Location</p>
+                <span>Based in India</span>
               </div>
             </div>
           </div>
+        </div>
         </div>
 
         <div className="footer-bottom">
@@ -261,15 +285,37 @@ const Footer = () => {
           opacity: 0.8;
         }
 
-        .contact-link {
-          color: var(--light);
+        /* Updated: Contact Link Buttons */
+        .contact-link-btn {
+          background: transparent;
+          border: 1.5px solid var(--primary);
+          color: var(--primary);
           text-decoration: none;
-          transition: color 0.3s ease;
           font-weight: 500;
+          font-size: 0.8rem;
+          padding: 0.3rem 0.8rem;
+          border-radius: 4px;
+          cursor: pointer;
+          transition: all 0.2s ease;
+          margin-top: 0.2rem;
         }
 
-        .contact-link:hover {
-          color: var(--secondary);
+        .contact-link-btn:hover {
+          background: var(--primary);
+          color: white;
+          transform: translateY(-1px);
+          box-shadow: 0 2px 4px rgba(59, 130, 246, 0.2);
+        }
+
+        .contact-link-btn.whatsapp {
+          border-color: #25D366;
+          color: #25D366;
+        }
+
+        .contact-link-btn.whatsapp:hover {
+          background: #25D366;
+          color: white;
+          box-shadow: 0 2px 4px rgba(37, 211, 102, 0.2);
         }
 
         .footer-bottom {
