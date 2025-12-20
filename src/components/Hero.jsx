@@ -89,14 +89,14 @@ const Hero = () => {
     }
   ]
 
-  const handleLetsTalkClick = () => {
+const handleLetsTalkClick = () => {
     const appointmentSection = document.querySelector('#appointment')
     if (appointmentSection) {
       appointmentSection.scrollIntoView({ behavior: 'smooth' })
     }
   }
 
- const handleScheduleClick = () => {
+const handleScheduleClick = () => {
     const appointmentSection = document.querySelector('#appointment')
     if (appointmentSection) {
       appointmentSection.scrollIntoView({ behavior: 'smooth' })
@@ -327,7 +327,7 @@ const Hero = () => {
 
         /* Schedule Appointment Button on Image */
         .schedule-overlay-btn {
-          position: absolute;
+          position: fixed;
           bottom: 20px;
           right: 20px;
           background: rgba(16, 185, 129, 0.95);

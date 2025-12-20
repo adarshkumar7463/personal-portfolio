@@ -228,7 +228,7 @@ const About = () => {
                 <button className="about-download-btn">
                   📥 Download Resume
                 </button>
-              </a>
+            </a>
             </div>
 
             {/* Resume Sections */}
